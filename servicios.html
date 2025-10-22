@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Tree Professional Emporium</title>
+    <meta name="description" content="Explore nuestros servicios profesionales de contabilidad, finanzas, gerencia, recursos humanos y más en Ponce, Puerto Rico.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            primary: '#1A2332',
+                            medium: '#252F3E',
+                            light: '#2A3847',
+                        },
+                        gold: {
+                            DEFAULT: '#C9A961',
+                            dark: '#B8935A',
+                        },
+                        accent: {
+                            blue: '#4A90E2',
+                        },
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Lato', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1A2332 0%, #252F3E 100%);
+            min-height: 100vh;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(37, 47, 62, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(201, 169, 97, 0.2);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #C9A961, #B8935A);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .service-detail-card {
+            background: rgba(37, 47, 62, 0.9);
+            border: 2px solid rgba(201, 169, 97, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(201, 169, 97, 0.6);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.2);
+        }
+
+        .service-icon-large {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #C9A961, #B8935A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: #1A2332;
+            margin-bottom: 25px;
+        }
+
+        .service-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #C9A961;
+            margin-bottom: 20px;
+        }
+
+        .service-description {
+            color: #e1e8ed;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0;
+        }
+
+        .service-features li {
+            color: #e1e8ed;
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 16px;
+        }
+
+        .service-features li:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #C9A961;
+        }
+
+        .form-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #C9A961, #B8935A);
+            color: #1A2332;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(201, 169, 97, 0.5);
+            background: linear-gradient(135deg, #B8935A, #C9A961);
+        }
+
+        .form-button i {
+            margin-right: 10px;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .page-subtitle {
+            color: #e1e8ed;
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="https://files.catbox.moe/o6we45.png" alt="Tree Professional Emporium Logo" class="logo-img">
+                        <span class="logo-text">Tree Professional Emporium</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="servicios.html" class="active">Servicios</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="index.html#equipo">Equipo</a></li>
+                    <li><a href="index.html#reservas">Reservas</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header fade-in">
+        <h1 class="page-title">
+            <span class="gradient-text">Nuestros Servicios</span>
+        </h1>
+        <p class="page-subtitle">Explore nuestros servicios profesionales y complete el formulario de consulta para comenzar a trabajar juntos</p>
+    </div>
+
+    <!-- Services Container -->
+    <div class="services-container">
+
+        <!-- Contabilidad Service -->
+        <div class="service-detail-card fade-in">
+            <div class="service-icon-large">
+                <i class="fas fa-calculator"></i>
+            </div>
+            <h2 class="service-title">Contabilidad</h2>
+            <p class="service-description">
+                Ofrecemos servicios contables completos diseñados para mantener sus finanzas organizadas y en cumplimiento.
+                Nuestro equipo de contadores profesionales se encarga de la preparación de estados financieros, conciliaciones
+                bancarias, y el manejo eficiente de cuentas por pagar y cobrar.
+            </p>
+            <ul class="service-features">
+                <li>Preparación de Estados Financieros Mensuales y Anuales</li>
+                <li>Contabilidad General y Registro de Transacciones</li>
+                <li>Conciliaciones Bancarias y de Cuentas</li>
+                <li>Análisis de Costos y Control Presupuestario</li>
+                <li>Auditorías Internas y Revisiones Financieras</li>
+                <li>Informes Gerenciales Personalizados</li>
+            </ul>
+            <a href="https://forms.google.com/" target="_blank" class="form-button">
+                <i class="fas fa-file-alt"></i>Solicitar Servicio de Contabilidad
+            </a>
+        </div>
+
+        <!-- Finanzas Service -->
+        <div class="service-detail-card fade-in">
+            <div class="service-icon-large">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <h2 class="service-title">Finanzas</h2>
+            <p class="service-description">
+                Brindamos asesoría financiera estratégica para ayudar a su empresa a tomar decisiones informadas.
+                Nuestros servicios incluyen análisis de inversiones, proyecciones financieras detalladas y optimización
+                de recursos económicos para maximizar su rentabilidad.
+            </p>
+            <ul class="service-features">
+                <li>Análisis Financiero Integral y Proyecciones</li>
+                <li>Desarrollo de Presupuestos y Pronósticos</li>
+                <li>Asesoría en Inversiones y Gestión de Capital</li>
+                <li>Control y Optimización de Flujo de Caja</li>
+                <li>Estrategias de Financiamiento y Refinanciamiento</li>
+                <li>Evaluación de Proyectos y Análisis de Viabilidad</li>
+            </ul>
+            <a href="https://forms.google.com/" target="_blank" class="form-button">
+                <i class="fas fa-file-alt"></i>Solicitar Asesoría Financiera
+            </a>
+        </div>
+
+        <!-- Gerencia Service -->
+        <div class="service-detail-card fade-in">
+            <div class="service-icon-large">
+                <i class="fas fa-briefcase"></i>
+            </div>
+            <h2 class="service-title">Gerencia</h2>
+            <p class="service-description">
+                Nuestra consultoría gerencial ayuda a optimizar las operaciones de su empresa. Desarrollamos estrategias
+                empresariales efectivas, mejoramos procesos internos y proporcionamos soporte en la toma de decisiones
+                estratégicas para el crecimiento sostenible de su organización.
+            </p>
+            <ul class="service-features">
+                <li>Planificación Estratégica y Desarrollo de Visión</li>
+                <li>Gestión de Proyectos y Control de Ejecución</li>
+                <li>Mejora y Optimización de Procesos Empresariales</li>
+                <li>Consultoría Empresarial y Asesoría Ejecutiva</li>
+                <li>Análisis Organizacional y Reestructuración</li>
+                <li>Desarrollo de Planes de Crecimiento</li>
+            </ul>
+            <a href="https://forms.google.com/" target="_blank" class="form-button">
+                <i class="fas fa-file-alt"></i>Solicitar Consultoría Gerencial
+            </a>
+        </div>
+
+        <!-- Recursos Humanos Service -->
+        <div class="service-detail-card fade-in">
+            <div class="service-icon-large">
+                <i class="fas fa-users"></i>
+            </div>
+            <h2 class="service-title">Recursos Humanos</h2>
+            <p class="service-description">
+                Ofrecemos servicios completos de administración de recursos humanos, incluyendo reclutamiento, nómina,
+                gestión de beneficios y cumplimiento laboral. Nos aseguramos de que su empresa cuente con el talento
+                adecuado y cumpla con todas las regulaciones laborales vigentes.
+            </p>
+            <ul class="service-features">
+                <li>Administración y Procesamiento de Nómina</li>
+                <li>Reclutamiento, Selección y Onboarding</li>
+                <li>Manejo de Beneficios y Compensaciones</li>
+                <li>Cumplimiento Laboral y Regulaciones</li>
+                <li>Desarrollo Organizacional y Capacitación</li>
+                <li>Manuales de Empleados y Políticas</li>
+            </ul>
+            <a href="https://forms.google.com/" target="_blank" class="form-button">
+                <i class="fas fa-file-alt"></i>Solicitar Servicios de RRHH
+            </a>
+        </div>
+
+        <!-- Planificación Financiera Service -->
+        <div class="service-detail-card fade-in">
+            <div class="service-icon-large">
+                <i class="fas fa-clipboard-check"></i>
+            </div>
+            <h2 class="service-title">Planificación Financiera</h2>
+            <p class="service-description">
+                Desarrollamos planes financieros personalizados que se adaptan a sus metas y necesidades específicas.
+                Nuestros servicios incluyen estrategias de ahorro e inversión, planificación para el retiro y protección
+                patrimonial para asegurar su futuro financiero.
+            </p>
+            <ul class="service-features">
+                <li>Planes Financieros Personalizados y Estratégicos</li>
+                <li>Estrategias de Inversión y Diversificación</li>
+                <li>Planificación de Retiro y Jubilación</li>
+                <li>Protección de Activos y Patrimonial</li>
+                <li>Planificación Sucesoria y Herencias</li>
+                <li>Seguros y Gestión de Riesgos</li>
+            </ul>
+            <a href="https://forms.google.com/" target="_blank" class="form-button">
+                <i class="fas fa-file-alt"></i>Solicitar Planificación Financiera
+            </a>
+        </div>
+
+        <!-- Servicios Tributarios -->
+        <div class="service-detail-card fade-in">
+            <div class="service-icon-large">
+                <i class="fas fa-file-invoice-dollar"></i>
+            </div>
+            <h2 class="service-title">Servicios Tributarios</h2>
+            <p class="service-description">
+                Proporcionamos servicios tributarios integrales incluyendo preparación de impuestos, planificación fiscal
+                estratégica y representación ante agencias gubernamentales. Nuestro objetivo es minimizar su carga tributaria
+                mientras mantenemos el cumplimiento total con las leyes fiscales.
+            </p>
+            <ul class="service-features">
+                <li>Preparación de Planillas Personales y Corporativas</li>
+                <li>Planificación Tributaria y Estrategias de Ahorro</li>
+                <li>Representación ante Hacienda y IRS</li>
+                <li>Consultoría Legal-Financiera</li>
+                <li>Análisis y Revisión de Situación Fiscal</li>
+                <li>Asesoría en Incentivos y Deducciones</li>
+            </ul>
+            <a href="https://forms.google.com/" target="_blank" class="form-button">
+                <i class="fas fa-file-alt"></i>Solicitar Servicios Tributarios
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="https://files.catbox.moe/o6we45.png" alt="TPE Logo" class="footer-logo">
+                    <h3>Tree Professional Emporium</h3>
+                    <p>Su socio estratégico en servicios profesionales. Soluciones integrales para el éxito de su empresa.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/treeprofessionalemporiumllc" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/17879305755" target="_blank" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:tpemporium@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="servicios.html">Contabilidad</a></li>
+                        <li><a href="servicios.html">Finanzas</a></li>
+                        <li><a href="servicios.html">Gerencia</a></li>
+                        <li><a href="servicios.html">Recursos Humanos</a></li>
+                        <li><a href="servicios.html">Planificación Financiera</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="index.html#inicio">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="index.html#nosotros">Nosotros</a></li>
+                        <li><a href="index.html#proceso">Proceso</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 29 Calle Cristina, Ponce, PR 00730</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+17879305755">(787) 930-5755</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:tpemporium@gmail.com">tpemporium@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tree Professional Emporium LLC. Todos los derechos reservados. | Ponce, Puerto Rico</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

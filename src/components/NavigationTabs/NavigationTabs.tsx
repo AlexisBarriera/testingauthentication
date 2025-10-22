@@ -12,7 +12,7 @@ const NavigationTabs: React.FC<NavigationTabsProps> = ({ isScrolled }) => {
   const tabs = [
     { label: 'Inicio', href: '#hero' },
     { label: 'Nosotros', href: '#about' },
-    { label: 'Servicios', href: '#services' },
+    { label: 'Servicios', href: '/servicios.html' },
     { label: 'Reservas', href: '#booking' },
     { label: 'Contacto', href: '#contact' }
   ];
