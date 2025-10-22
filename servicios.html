@@ -36,332 +36,405 @@
         }
     </script>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            background: linear-gradient(135deg, #1A2332 0%, #252F3E 100%);
+            background: #0D1117;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(201, 169, 97, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(74, 144, 226, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(201, 169, 97, 0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(74, 144, 226, 0.1) 0px, transparent 50%);
             min-height: 100vh;
             font-family: 'Lato', sans-serif;
+            color: #e1e8ed;
         }
 
-        .glass-card {
-            background: rgba(37, 47, 62, 0.8);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(201, 169, 97, 0.2);
+        /* Header Section */
+        .services-header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
         }
 
-        .gradient-text {
+        .home-button {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #C9A961, #B8935A);
+            color: #1A2332;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .home-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(201, 169, 97, 0.5);
+        }
+
+        .header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            font-weight: 900;
             background: linear-gradient(135deg, #C9A961, #B8935A);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            margin-bottom: 20px;
+            animation: fadeInDown 0.8s ease-out;
         }
 
-        .fade-in {
-            animation: fadeIn 0.8s ease-in-out;
+        .header-subtitle {
+            font-size: 20px;
+            color: #a8b2c0;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .service-detail-card {
-            background: rgba(37, 47, 62, 0.9);
-            border: 2px solid rgba(201, 169, 97, 0.3);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            transition: all 0.3s ease;
-            animation: fadeIn 0.8s ease-in-out;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .service-detail-card:hover {
-            transform: translateY(-5px);
+        /* Service Islands Grid */
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .home-button {
+                position: static;
+                margin-bottom: 30px;
+            }
+
+            .header-title {
+                font-size: 36px;
+            }
+        }
+
+        /* Service Island Card */
+        .service-island {
+            background: linear-gradient(145deg, rgba(26, 35, 50, 0.9), rgba(37, 47, 62, 0.9));
+            border: 2px solid rgba(201, 169, 97, 0.25);
+            border-radius: 24px;
+            padding: 45px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: floatIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .service-island:nth-child(1) { animation-delay: 0.1s; }
+        .service-island:nth-child(2) { animation-delay: 0.2s; }
+        .service-island:nth-child(3) { animation-delay: 0.3s; }
+        .service-island:nth-child(4) { animation-delay: 0.4s; }
+        .service-island:nth-child(5) { animation-delay: 0.5s; }
+        .service-island:nth-child(6) { animation-delay: 0.6s; }
+        .service-island:nth-child(7) { animation-delay: 0.7s; }
+        .service-island:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .service-island::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #C9A961, #B8935A, #C9A961);
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .service-island:hover {
+            transform: translateY(-8px) scale(1.02);
             border-color: rgba(201, 169, 97, 0.6);
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.2);
+            box-shadow: 0 20px 60px rgba(201, 169, 97, 0.2);
         }
 
-        .service-icon-large {
-            width: 80px;
-            height: 80px;
+        .service-icon-wrapper {
+            width: 90px;
+            height: 90px;
             background: linear-gradient(135deg, #C9A961, #B8935A);
-            border-radius: 50%;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
-            color: #1A2332;
             margin-bottom: 25px;
+            box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+            transition: all 0.3s ease;
         }
 
-        .service-title {
+        .service-island:hover .service-icon-wrapper {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .service-icon-wrapper i {
+            font-size: 42px;
+            color: #1A2332;
+        }
+
+        .service-name {
             font-family: 'Playfair Display', serif;
             font-size: 32px;
             font-weight: 700;
             color: #C9A961;
             margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .service-description {
-            color: #e1e8ed;
-            font-size: 18px;
+            color: #c9d1d9;
+            font-size: 16px;
             line-height: 1.8;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
-        .service-features {
-            list-style: none;
-            padding: 0;
+        .service-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #C9A961, transparent);
             margin: 25px 0;
         }
 
-        .service-features li {
-            color: #e1e8ed;
-            padding: 12px 0;
-            padding-left: 30px;
-            position: relative;
-            font-size: 16px;
-        }
-
-        .service-features li:before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: #C9A961;
-        }
-
-        .form-button {
-            display: inline-block;
+        .form-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
             background: linear-gradient(135deg, #C9A961, #B8935A);
             color: #1A2332;
-            padding: 15px 40px;
+            padding: 16px 35px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 16px;
             transition: all 0.3s ease;
-            margin-top: 20px;
             box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+            margin-top: 10px;
         }
 
-        .form-button:hover {
-            transform: translateY(-2px);
+        .form-link:hover {
+            transform: translateX(5px);
             box-shadow: 0 6px 25px rgba(201, 169, 97, 0.5);
-            background: linear-gradient(135deg, #B8935A, #C9A961);
         }
 
-        .form-button i {
-            margin-right: 10px;
-        }
-
-        .page-header {
-            text-align: center;
-            padding: 80px 20px 60px;
-        }
-
-        .page-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 900;
-            margin-bottom: 20px;
-        }
-
-        .page-subtitle {
-            color: #e1e8ed;
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
+        .form-link i {
+            font-size: 18px;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="https://files.catbox.moe/o6we45.png" alt="Tree Professional Emporium Logo" class="logo-img">
-                        <span class="logo-text">Tree Professional Emporium</span>
-                    </a>
-                </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="index.html#inicio">Inicio</a></li>
-                    <li><a href="servicios.html" class="active">Servicios</a></li>
-                    <li><a href="index.html#nosotros">Nosotros</a></li>
-                    <li><a href="index.html#equipo">Equipo</a></li>
-                    <li><a href="index.html#reservas">Reservas</a></li>
-                    <li><a href="index.html#contacto">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Header -->
+    <header class="services-header">
+        <a href="index.html" class="home-button">
+            <i class="fas fa-home"></i>
+            Volver al Inicio
+        </a>
+        <h1 class="header-title">Nuestros Servicios Profesionales</h1>
+        <p class="header-subtitle">Soluciones especializadas para el éxito de su empresa</p>
+    </header>
 
-    <!-- Page Header -->
-    <div class="page-header fade-in">
-        <h1 class="page-title">
-            <span class="gradient-text">Nuestros Servicios</span>
-        </h1>
-        <p class="page-subtitle">Explore nuestros servicios profesionales y complete el formulario de consulta para comenzar a trabajar juntos</p>
-    </div>
+    <!-- Services Grid -->
+    <div class="services-grid">
 
-    <!-- Services Container -->
-    <div class="services-container">
-
-        <!-- Contabilidad Service -->
-        <div class="service-detail-card fade-in">
-            <div class="service-icon-large">
+        <!-- Service 1: Contabilidad -->
+        <div class="service-island">
+            <div class="service-icon-wrapper">
                 <i class="fas fa-calculator"></i>
             </div>
-            <h2 class="service-title">Contabilidad</h2>
+            <h2 class="service-name">Contabilidad</h2>
+            <div class="service-divider"></div>
             <p class="service-description">
-                Ofrecemos servicios contables completos diseñados para mantener sus finanzas organizadas y en cumplimiento.
-                Nuestro equipo de contadores profesionales se encarga de la preparación de estados financieros, conciliaciones
-                bancarias, y el manejo eficiente de cuentas por pagar y cobrar.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </p>
-            <ul class="service-features">
-                <li>Preparación de Estados Financieros Mensuales y Anuales</li>
-                <li>Contabilidad General y Registro de Transacciones</li>
-                <li>Conciliaciones Bancarias y de Cuentas</li>
-                <li>Análisis de Costos y Control Presupuestario</li>
-                <li>Auditorías Internas y Revisiones Financieras</li>
-                <li>Informes Gerenciales Personalizados</li>
-            </ul>
-            <a href="https://forms.google.com/" target="_blank" class="form-button">
-                <i class="fas fa-file-alt"></i>Solicitar Servicio de Contabilidad
+            <a href="https://forms.google.com/" target="_blank" class="form-link">
+                <i class="fas fa-file-alt"></i>
+                Solicitar Servicio
             </a>
         </div>
 
-        <!-- Finanzas Service -->
-        <div class="service-detail-card fade-in">
-            <div class="service-icon-large">
+        <!-- Service 2: Finanzas -->
+        <div class="service-island">
+            <div class="service-icon-wrapper">
                 <i class="fas fa-chart-line"></i>
             </div>
-            <h2 class="service-title">Finanzas</h2>
+            <h2 class="service-name">Finanzas</h2>
+            <div class="service-divider"></div>
             <p class="service-description">
-                Brindamos asesoría financiera estratégica para ayudar a su empresa a tomar decisiones informadas.
-                Nuestros servicios incluyen análisis de inversiones, proyecciones financieras detalladas y optimización
-                de recursos económicos para maximizar su rentabilidad.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+                Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
             </p>
-            <ul class="service-features">
-                <li>Análisis Financiero Integral y Proyecciones</li>
-                <li>Desarrollo de Presupuestos y Pronósticos</li>
-                <li>Asesoría en Inversiones y Gestión de Capital</li>
-                <li>Control y Optimización de Flujo de Caja</li>
-                <li>Estrategias de Financiamiento y Refinanciamiento</li>
-                <li>Evaluación de Proyectos y Análisis de Viabilidad</li>
-            </ul>
-            <a href="https://forms.google.com/" target="_blank" class="form-button">
-                <i class="fas fa-file-alt"></i>Solicitar Asesoría Financiera
+            <a href="https://forms.google.com/" target="_blank" class="form-link">
+                <i class="fas fa-file-alt"></i>
+                Solicitar Servicio
             </a>
         </div>
 
-        <!-- Gerencia Service -->
-        <div class="service-detail-card fade-in">
-            <div class="service-icon-large">
+        <!-- Service 3: Gerencia -->
+        <div class="service-island">
+            <div class="service-icon-wrapper">
                 <i class="fas fa-briefcase"></i>
             </div>
-            <h2 class="service-title">Gerencia</h2>
+            <h2 class="service-name">Gerencia</h2>
+            <div class="service-divider"></div>
             <p class="service-description">
-                Nuestra consultoría gerencial ayuda a optimizar las operaciones de su empresa. Desarrollamos estrategias
-                empresariales efectivas, mejoramos procesos internos y proporcionamos soporte en la toma de decisiones
-                estratégicas para el crecimiento sostenible de su organización.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse potenti. Praesent dapibus, neque id cursus faucibus,
+                tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis,
+                accumsan porttitor, facilisis luctus, metus. Phasellus ultrices nulla quis nibh.
             </p>
-            <ul class="service-features">
-                <li>Planificación Estratégica y Desarrollo de Visión</li>
-                <li>Gestión de Proyectos y Control de Ejecución</li>
-                <li>Mejora y Optimización de Procesos Empresariales</li>
-                <li>Consultoría Empresarial y Asesoría Ejecutiva</li>
-                <li>Análisis Organizacional y Reestructuración</li>
-                <li>Desarrollo de Planes de Crecimiento</li>
-            </ul>
-            <a href="https://forms.google.com/" target="_blank" class="form-button">
-                <i class="fas fa-file-alt"></i>Solicitar Consultoría Gerencial
+            <a href="https://forms.google.com/" target="_blank" class="form-link">
+                <i class="fas fa-file-alt"></i>
+                Solicitar Servicio
             </a>
         </div>
 
-        <!-- Recursos Humanos Service -->
-        <div class="service-detail-card fade-in">
-            <div class="service-icon-large">
+        <!-- Service 4: Recursos Humanos -->
+        <div class="service-island">
+            <div class="service-icon-wrapper">
                 <i class="fas fa-users"></i>
             </div>
-            <h2 class="service-title">Recursos Humanos</h2>
+            <h2 class="service-name">Recursos Humanos</h2>
+            <div class="service-divider"></div>
             <p class="service-description">
-                Ofrecemos servicios completos de administración de recursos humanos, incluyendo reclutamiento, nómina,
-                gestión de beneficios y cumplimiento laboral. Nos aseguramos de que su empresa cuente con el talento
-                adecuado y cumpla con todas las regulaciones laborales vigentes.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+                Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.
+                Mauris massa. Vestibulum lacinia arcu eget nulla.
             </p>
-            <ul class="service-features">
-                <li>Administración y Procesamiento de Nómina</li>
-                <li>Reclutamiento, Selección y Onboarding</li>
-                <li>Manejo de Beneficios y Compensaciones</li>
-                <li>Cumplimiento Laboral y Regulaciones</li>
-                <li>Desarrollo Organizacional y Capacitación</li>
-                <li>Manuales de Empleados y Políticas</li>
-            </ul>
-            <a href="https://forms.google.com/" target="_blank" class="form-button">
-                <i class="fas fa-file-alt"></i>Solicitar Servicios de RRHH
+            <a href="https://forms.google.com/" target="_blank" class="form-link">
+                <i class="fas fa-file-alt"></i>
+                Solicitar Servicio
             </a>
         </div>
 
-        <!-- Planificación Financiera Service -->
-        <div class="service-detail-card fade-in">
-            <div class="service-icon-large">
+        <!-- Service 5: Planificación Financiera -->
+        <div class="service-island">
+            <div class="service-icon-wrapper">
                 <i class="fas fa-clipboard-check"></i>
             </div>
-            <h2 class="service-title">Planificación Financiera</h2>
+            <h2 class="service-name">Planificación Financiera</h2>
+            <div class="service-divider"></div>
             <p class="service-description">
-                Desarrollamos planes financieros personalizados que se adaptan a sus metas y necesidades específicas.
-                Nuestros servicios incluyen estrategias de ahorro e inversión, planificación para el retiro y protección
-                patrimonial para asegurar su futuro financiero.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+                per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor.
+                Pellentesque nibh. Aenean quam. In scelerisque sem at dolor.
             </p>
-            <ul class="service-features">
-                <li>Planes Financieros Personalizados y Estratégicos</li>
-                <li>Estrategias de Inversión y Diversificación</li>
-                <li>Planificación de Retiro y Jubilación</li>
-                <li>Protección de Activos y Patrimonial</li>
-                <li>Planificación Sucesoria y Herencias</li>
-                <li>Seguros y Gestión de Riesgos</li>
-            </ul>
-            <a href="https://forms.google.com/" target="_blank" class="form-button">
-                <i class="fas fa-file-alt"></i>Solicitar Planificación Financiera
+            <a href="https://forms.google.com/" target="_blank" class="form-link">
+                <i class="fas fa-file-alt"></i>
+                Solicitar Servicio
             </a>
         </div>
 
-        <!-- Servicios Tributarios -->
-        <div class="service-detail-card fade-in">
-            <div class="service-icon-large">
+        <!-- Service 6: Servicios Tributarios -->
+        <div class="service-island">
+            <div class="service-icon-wrapper">
                 <i class="fas fa-file-invoice-dollar"></i>
             </div>
-            <h2 class="service-title">Servicios Tributarios</h2>
+            <h2 class="service-name">Servicios Tributarios</h2>
+            <div class="service-divider"></div>
             <p class="service-description">
-                Proporcionamos servicios tributarios integrales incluyendo preparación de impuestos, planificación fiscal
-                estratégica y representación ante agencias gubernamentales. Nuestro objetivo es minimizar su carga tributaria
-                mientras mantenemos el cumplimiento total con las leyes fiscales.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.
+                Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet.
+                Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed.
             </p>
-            <ul class="service-features">
-                <li>Preparación de Planillas Personales y Corporativas</li>
-                <li>Planificación Tributaria y Estrategias de Ahorro</li>
-                <li>Representación ante Hacienda y IRS</li>
-                <li>Consultoría Legal-Financiera</li>
-                <li>Análisis y Revisión de Situación Fiscal</li>
-                <li>Asesoría en Incentivos y Deducciones</li>
-            </ul>
-            <a href="https://forms.google.com/" target="_blank" class="form-button">
-                <i class="fas fa-file-alt"></i>Solicitar Servicios Tributarios
+            <a href="https://forms.google.com/" target="_blank" class="form-link">
+                <i class="fas fa-file-alt"></i>
+                Solicitar Servicio
+            </a>
+        </div>
+
+        <!-- Service 7: Auditoría Interna -->
+        <div class="service-island">
+            <div class="service-icon-wrapper">
+                <i class="fas fa-search-dollar"></i>
+            </div>
+            <h2 class="service-name">Auditoría Interna</h2>
+            <div class="service-divider"></div>
+            <p class="service-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel neque nec dui dignissim bibendum.
+                Vivamus id enim. Phasellus neque orci, porta a, aliquet quis, semper a, massa. Phasellus purus.
+                Pellentesque tristique imperdiet tortor. Nam euismod tellus id erat. Nullam eu ante vel est convallis dignissim.
+            </p>
+            <a href="https://forms.google.com/" target="_blank" class="form-link">
+                <i class="fas fa-file-alt"></i>
+                Solicitar Servicio
+            </a>
+        </div>
+
+        <!-- Service 8: Consultoría Empresarial -->
+        <div class="service-island">
+            <div class="service-icon-wrapper">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <h2 class="service-name">Consultoría Empresarial</h2>
+            <div class="service-divider"></div>
+            <p class="service-description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce convallis metus id felis luctus adipiscing.
+                Pellentesque egestas, neque sit amet convallis pulvinar, justo nulla eleifend augue, ac auctor orci leo non est.
+                Quisque id mi. Ut tincidunt tincidunt erat. Etiam feugiat lorem non metus.
+            </p>
+            <a href="https://forms.google.com/" target="_blank" class="form-link">
+                <i class="fas fa-file-alt"></i>
+                Solicitar Servicio
             </a>
         </div>
 
