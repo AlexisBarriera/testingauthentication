@@ -27,6 +27,17 @@
     box-sizing: border-box;
 }
 
+/* Global override to prevent any blue color from browser defaults */
+a, a:link, a:visited, a:active {
+    color: var(--primary-green) !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: var(--accent-green) !important;
+    text-decoration: underline !important;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -42,8 +53,6 @@ body {
 a {
     color: var(--primary-green);
     text-decoration: none;
-    outline: none;
-    border: none;
 }
 
 a:hover {
@@ -58,25 +67,80 @@ a:link {
     color: var(--primary-green);
 }
 
-a:focus {
-    outline: none;
-    border: none;
-}
-
 /* Ensure content area links are never browser default blue */
 .container a,
 .team-content a,
 .about-text a,
 p a {
-    color: var(--primary-green);
+    color: var(--primary-green) !important;
 }
 
 .container a:hover,
 .team-content a:hover,
 .about-text a:hover,
 p a:hover {
-    color: var(--accent-green);
+    color: var(--accent-green) !important;
     text-decoration: underline;
+}
+
+/* Additional rules to ensure team section text is never blue */
+.team-section * {
+    color: inherit;
+}
+
+.team-section a,
+.team-section a:link,
+.team-section a:visited,
+.team-section a:active {
+    color: var(--primary-green) !important;
+    text-decoration: none !important;
+}
+
+.team-section a:hover {
+    color: var(--accent-green) !important;
+    text-decoration: underline !important;
+}
+
+/* Ensure all text in team content is properly colored */
+.team-content,
+.team-content * {
+    color: var(--text-gray) !important;
+}
+
+.team-content h3 {
+    color: var(--dark-green) !important;
+}
+
+.team-content p {
+    color: var(--text-gray) !important;
+}
+
+/* Ensure footer links are never blue */
+.footer a,
+.footer a:link,
+.footer a:visited,
+.footer a:active {
+    color: var(--primary-green) !important;
+    text-decoration: none !important;
+}
+
+.footer a:hover {
+    color: var(--accent-green) !important;
+    text-decoration: underline !important;
+}
+
+/* Ensure navigation links are never blue */
+.navbar a,
+.navbar a:link,
+.navbar a:visited,
+.navbar a:active {
+    color: var(--white) !important;
+    text-decoration: none !important;
+}
+
+.navbar a:hover {
+    color: var(--primary-green) !important;
+    text-decoration: none !important;
 }
 
 .container {
@@ -139,13 +203,6 @@ p a:hover {
     font-weight: 500;
     transition: var(--transition);
     position: relative;
-    outline: none;
-    border: none;
-}
-
-.nav-menu a:focus {
-    outline: none;
-    border: none;
 }
 
 .nav-menu a::after {
@@ -332,14 +389,6 @@ section {
     background: var(--light-gray);
 }
 
-.services .section-title {
-    color: #FFFFFF;
-}
-
-.services .section-subtitle {
-    color: #FFFFFF;
-}
-
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -479,14 +528,6 @@ section {
 .team-section {
     background: linear-gradient(135deg, rgba(109, 186, 44, 0.03) 0%, rgba(157, 212, 76, 0.05) 100%);
     padding: 6rem 0;
-}
-
-.team-section .section-title {
-    color: #FFFFFF;
-}
-
-.team-section .section-subtitle {
-    color: #FFFFFF;
 }
 
 .team-member {
