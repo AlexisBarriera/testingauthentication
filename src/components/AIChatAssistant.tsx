@@ -330,8 +330,8 @@ const AIChatAssistant = () => {
                         style={{
                           padding: '8px 14px',
                           background: '#1A2332',
-                          color: '#4A90E2',
-                          border: '2px solid #4A90E2',
+                          color: '#6fba2c',
+                          border: '2px solid #6fba2c',
                           borderRadius: '20px',
                           cursor: 'pointer',
                           fontSize: '12px',
@@ -342,12 +342,12 @@ const AIChatAssistant = () => {
                           transition: 'all 0.2s',
                         }}
                         onMouseEnter={(e) => {
-                          e.currentTarget.style.background = '#4A90E2';
+                          e.currentTarget.style.background = '#6fba2c';
                           e.currentTarget.style.color = 'white';
                         }}
                         onMouseLeave={(e) => {
                           e.currentTarget.style.background = '#1A2332';
-                          e.currentTarget.style.color = '#4A90E2';
+                          e.currentTarget.style.color = '#6fba2c';
                         }}
                       >
                         📞 Contactar Ahora
