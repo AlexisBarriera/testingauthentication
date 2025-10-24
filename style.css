@@ -42,6 +42,8 @@ body {
 a {
     color: var(--primary-green);
     text-decoration: none;
+    outline: none;
+    border: none;
 }
 
 a:hover {
@@ -54,6 +56,11 @@ a:visited {
 
 a:link {
     color: var(--primary-green);
+}
+
+a:focus {
+    outline: none;
+    border: none;
 }
 
 /* Ensure content area links are never browser default blue */
@@ -132,6 +139,13 @@ p a:hover {
     font-weight: 500;
     transition: var(--transition);
     position: relative;
+    outline: none;
+    border: none;
+}
+
+.nav-menu a:focus {
+    outline: none;
+    border: none;
 }
 
 .nav-menu a::after {
@@ -318,6 +332,14 @@ section {
     background: var(--light-gray);
 }
 
+.services .section-title {
+    color: #FFFFFF;
+}
+
+.services .section-subtitle {
+    color: #FFFFFF;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -457,6 +479,14 @@ section {
 .team-section {
     background: linear-gradient(135deg, rgba(109, 186, 44, 0.03) 0%, rgba(157, 212, 76, 0.05) 100%);
     padding: 6rem 0;
+}
+
+.team-section .section-title {
+    color: #FFFFFF;
+}
+
+.team-section .section-subtitle {
+    color: #FFFFFF;
 }
 
 .team-member {
