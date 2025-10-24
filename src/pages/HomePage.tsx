@@ -52,7 +52,7 @@ const HomePage: React.FC = () => {
         <div className="container">
           <div className="hero-content">
             <h1 className="hero-title">
-              <span className="gradient-text">Servicios Profesionales</span>
+              <span style={{ color: 'white' }}>Servicios Profesionales</span>
               <br />para el Éxito de su Empresa
             </h1>
             <p className="hero-subtitle">Soluciones integrales en contabilidad, finanzas, gerencia, recursos humanos y planificación financiera. Su socio estratégico en Ponce, Puerto Rico.</p>

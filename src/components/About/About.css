@@ -83,7 +83,7 @@
 .credential-item:hover {
   transform: translateX(5px);
   background: linear-gradient(135deg, rgba(42, 56, 71, 0.6), rgba(26, 35, 50, 0.5));
-  border-left-color: #4A90E2;
+  border-left-color: #6fba2c;
 }
 
 .credential-icon {
@@ -130,7 +130,7 @@
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   border-top: 3px solid transparent;
-  border-image: linear-gradient(90deg, #C9A961, #4A90E2) 1;
+  border-image: linear-gradient(90deg, #6fba2c, #9dd44c) 1;
 }
 
 .value-card:hover {

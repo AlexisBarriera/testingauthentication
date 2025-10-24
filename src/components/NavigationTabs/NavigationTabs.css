@@ -86,8 +86,8 @@
 .nav-tab:hover {
   transform: translateY(-2px);
   background: linear-gradient(135deg, rgba(42, 56, 71, 0.98), rgba(37, 47, 62, 0.98));
-  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
-  border-color: rgba(201, 169, 97, 0.6);
+  box-shadow: 0 8px 20px rgba(111, 186, 44, 0.4);
+  border-color: rgba(111, 186, 44, 0.6);
 }
 
 .tab-number {
