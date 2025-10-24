@@ -38,6 +38,19 @@ body {
     overflow-x: hidden;
 }
 
+a {
+    color: var(--primary-green);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-green);
+}
+
+a:visited {
+    color: var(--dark-green);
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
