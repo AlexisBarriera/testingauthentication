@@ -1,11 +1,32 @@
 import React from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const navigateToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (location.pathname === '/') {
+      // Already on homepage, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Navigate to homepage first, then scroll
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
     }
+  };
+
+  const handleServicesClick = () => {
+    navigate('/servicios');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -15,10 +36,10 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 py-24 md:py-32 flex flex-col justify-center h-full relative z-10">
         <div className="max-w-3xl mx-auto text-center fade-in">
           <p className="text-gold uppercase tracking-widest text-sm mb-4">
-             <img 
-              src="https://files.catbox.moe/oilzqt.png" 
-              alt="Excelencia en Gestión Financiera" 
-              className="inline-block mx-auto w-auto h-52 object-contain" 
+             <img
+              src="https://files.catbox.moe/oilzqt.png"
+              alt="Excelencia en Gestión Financiera"
+              className="inline-block mx-auto w-auto h-52 object-contain"
             />
           </p>
           <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6">Servicios Profesionales de <span className="gradient-text">Finanzas</span></h1>
@@ -26,7 +47,7 @@ const Hero: React.FC = () => {
           <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto">Tu socio confiable para soluciones financieras integrales en Puerto Rico. Más de 15 años de experiencia ayudando a empresas y particulares.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button onClick={() => navigateToSection('booking')} className="bg-gradient-to-r from-gold to-gold-dark text-navy-primary font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300">Programar Consulta</button>
-            <button onClick={() => navigateToSection('services')} className="border-2 border-gold text-gold font-semibold px-8 py-3 rounded-full hover:bg-gold hover:text-navy-primary transition-all duration-300">Saber Más</button>
+            <button onClick={handleServicesClick} className="border-2 border-gold text-gold font-semibold px-8 py-3 rounded-full hover:bg-gold hover:text-navy-primary transition-all duration-300">Saber Más</button>
           </div>
         </div>
 

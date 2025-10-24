@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import './App.css';
-import Hero from './components/Hero/Hero';
-import About from './components/About/About';
-import Services from './components/Services/Services';
-import BookingCalendar from './components/BookingCalendar/BookingCalendar';
-import Contact from './components/Contact/Contact';
 import NavigationTabs from './components/NavigationTabs/NavigationTabs';
-import AIChatAssistant from './components/AIChatAssistant';
+import HomePage from './pages/HomePage';
+import ServicesPage from './pages/ServicesPage';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -30,16 +27,15 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <NavigationTabs />
-      <Hero />
-      <About />
-      <Services />
-      <BookingCalendar />
-      <Contact />
-      <Footer />
-      <AIChatAssistant />
-    </div>
+    <Router>
+      <div className="app">
+        <NavigationTabs isScrolled={isScrolled} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/servicios" element={<ServicesPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

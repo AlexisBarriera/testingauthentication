@@ -80,6 +80,7 @@
   transition: all 0.3s ease;
   border: 1px solid rgba(201, 169, 97, 0.3);
   min-width: 80px;
+  cursor: pointer;
 }
 
 .nav-tab:hover {
