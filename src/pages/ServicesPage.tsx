@@ -1,10 +1,16 @@
 import React from 'react';
-import Hero from '../components/Hero/Hero';
-import Footer from '../components/Footer/Footer';
+import { useNavigate } from 'react-router-dom';
 import { services } from '../config/servicesData';
 import './ServicesPage.css';
 
 const ServicesPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const getFeatherIcon = (iconName: string) => {
     const icons: { [key: string]: string } = {
       'book-open': 'M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z',
@@ -19,24 +25,46 @@ const ServicesPage: React.FC = () => {
 
   return (
     <div className="services-page">
-      {/* Shared Hero Component */}
-      <Hero />
+      {/* Navigation */}
+      <nav className="navbar">
+        <div className="container">
+          <div className="nav-wrapper">
+            <div className="logo">
+              <img src="https://files.catbox.moe/o6we45.png" alt="Tree Professional Emporium Logo" className="logo-img" />
+              <span className="logo-text">Tree Professional Emporium</span>
+            </div>
+            <button className="mobile-menu-toggle" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <ul className="nav-menu">
+              <li><a href="#" onClick={(e) => { e.preventDefault(); handleHomeClick(); }}>Inicio</a></li>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); handleHomeClick(); }}>Nosotros</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); handleHomeClick(); }}>Equipo</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); handleHomeClick(); }}>Reservas</a></li>
+              <li><a href="#" onClick={(e) => { e.preventDefault(); handleHomeClick(); }}>Contacto</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
       {/* Services Section */}
-      <section className="services-section" id="services">
+      <section className="services-section" id="servicios">
         <div className="services-container">
           <div className="services-header">
-            <h2 className="services-title gradient-text">
-              Nuestros Servicios
+            <h2 className="services-title">
+              Nuestros Servicios Profesionales
             </h2>
             <p className="services-subtitle">
-              Soluciones financieras profesionales diseñadas para el éxito de su negocio
+              Soluciones financieras completas diseñadas para el éxito de su negocio
             </p>
           </div>
 
           <div className="services-grid">
             {services.map((service) => (
-              <div key={service.id} className="service-card glass-card fade-in">
+              <div key={service.id} className="service-card fade-in">
                 <div className="service-card-header">
                   <div className="service-icon-wrapper">
                     <svg
@@ -107,8 +135,60 @@ const ServicesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer Component */}
-      <Footer />
+      {/* Footer */}
+      <footer className="footer">
+        <div className="container">
+          <div className="footer-content">
+            <div className="footer-section">
+              <img src="https://files.catbox.moe/o6we45.png" alt="TPE Logo" className="footer-logo" />
+              <h3>Tree Professional Emporium</h3>
+              <p>Su socio estratégico en servicios profesionales. Soluciones integrales para el éxito de su empresa.</p>
+              <div className="social-links">
+                <a href="https://instagram.com/treeprofessionalemporiumllc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/17879305755" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                  <i className="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:tpemporium@gmail.com" aria-label="Email">
+                  <i className="fas fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+            <div className="footer-section">
+              <h4>Servicios</h4>
+              <ul>
+                <li><a href="#servicios">Contabilidad</a></li>
+                <li><a href="#servicios">Finanzas</a></li>
+                <li><a href="#servicios">Gerencia</a></li>
+                <li><a href="#servicios">Recursos Humanos</a></li>
+                <li><a href="#servicios">Planificación Financiera</a></li>
+              </ul>
+            </div>
+            <div className="footer-section">
+              <h4>Enlaces Rápidos</h4>
+              <ul>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); handleHomeClick(); }}>Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); handleHomeClick(); }}>Nosotros</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); handleHomeClick(); }}>Proceso</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); handleHomeClick(); }}>Contacto</a></li>
+              </ul>
+            </div>
+            <div className="footer-section">
+              <h4>Contacto</h4>
+              <ul>
+                <li><i className="fas fa-map-marker-alt"></i> 29 Calle Cristina, Ponce, PR 00730</li>
+                <li><i className="fas fa-phone"></i> <a href="tel:+17879305755">(787) 930-5755</a></li>
+                <li><i className="fas fa-envelope"></i> <a href="mailto:tpemporium@gmail.com">tpemporium@gmail.com</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>&copy; 2025 Tree Professional Emporium LLC. Todos los derechos reservados. | Ponce, Puerto Rico</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
