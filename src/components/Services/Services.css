@@ -55,7 +55,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #C9A961, #4A90E2);
+  background: linear-gradient(90deg, #6fba2c, #9dd44c);
 }
 
 .service-card:hover {

@@ -38,6 +38,40 @@ body {
     overflow-x: hidden;
 }
 
+/* Default link colors - green theme */
+a {
+    color: var(--primary-green);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-green);
+}
+
+a:visited {
+    color: var(--dark-green);
+}
+
+a:link {
+    color: var(--primary-green);
+}
+
+/* Ensure content area links are never browser default blue */
+.container a,
+.team-content a,
+.about-text a,
+p a {
+    color: var(--primary-green);
+}
+
+.container a:hover,
+.team-content a:hover,
+.about-text a:hover,
+p a:hover {
+    color: var(--accent-green);
+    text-decoration: underline;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;

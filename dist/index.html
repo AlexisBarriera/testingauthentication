@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tree Professional Emporium - Servicios Profesionales en Ponce, PR</title>
-    <meta name="description" content="Servicios profesionales de contabilidad, finanzas, gerencia, recursos humanos y planificación financiera en Ponce, Puerto Rico.">
+    <title>Shaddai Enterprises LLC - Servicios Profesionales de Finanzas en Ponce, PR</title>
+    <meta name="description" content="Servicios profesionales de contabilidad, finanzas, impuestos, nómina y planificación financiera en Ponce, Puerto Rico.">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -118,8 +118,14 @@
             width: 200px;
         }
 
-        #app {
+        #root {
             min-height: 100vh;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
         }
     </style>
     <script>
@@ -142,377 +148,33 @@
           }
         };
     </script>
-
-    <script>
-        feather.replace();
-    </script>
-    <script type="importmap">
-    {
-        "imports": {
-          "react": "https://esm.sh/react@18.2.0",
-          "react-dom": "https://esm.sh/react-dom@18.2.0",
-          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client"
-        }
-    }
-    </script>
-  <script type="module" crossorigin src="/assets/index-0f8e4e2d.js"></script>
-  <link rel="stylesheet" href="/assets/index-a24651b5.css">
+  <script type="module" crossorigin src="/assets/index-1492292f.js"></script>
+  <link rel="stylesheet" href="/assets/index-643f3f7f.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <img src="https://files.catbox.moe/o6we45.png" alt="Tree Professional Emporium Logo" class="logo-img">
-                    <span class="logo-text">Tree Professional Emporium</span>
-                </div>
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#equipo">Equipo</a></li>
-                    <li><a href="#reservas">Reservas</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- React Root -->
+    <div id="root"></div>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="gradient-text">Servicios Profesionales</span>
-                    <br>para el Éxito de su Empresa
-                </h1>
-                <p class="hero-subtitle">Soluciones integrales en contabilidad, finanzas, gerencia, recursos humanos y planificación financiera. Su socio estratégico en Ponce, Puerto Rico.</p>
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn btn-primary">Consulta Gratuita</a>
-                    <a href="#servicios" class="btn btn-secondary">Nuestros Servicios</a>
-                </div>
-            </div>
-        </div>
-        <div class="hero-scroll">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nuestros Servicios Profesionales</h2>
-                <p class="section-subtitle">Soluciones completas para el crecimiento y estabilidad de su negocio</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Contabilidad</h3>
-                    <p>Servicios contables completos, preparación de estados financieros, conciliaciones bancarias, y manejo de cuentas por pagar y cobrar.</p>
-                    <ul class="service-list">
-                        <li>Estados Financieros</li>
-                        <li>Contabilidad General</li>
-                        <li>Análisis de Costos</li>
-                        <li>Auditorías Internas</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Finanzas</h3>
-                    <p>Asesoría financiera estratégica, análisis de inversiones, proyecciones financieras y optimización de recursos económicos.</p>
-                    <ul class="service-list">
-                        <li>Análisis Financiero</li>
-                        <li>Proyecciones y Presupuestos</li>
-                        <li>Asesoría en Inversiones</li>
-                        <li>Control de Flujo de Caja</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Gerencia</h3>
-                    <p>Consultoría gerencial, desarrollo de estrategias empresariales, mejora de procesos y optimización organizacional.</p>
-                    <ul class="service-list">
-                        <li>Planificación Estratégica</li>
-                        <li>Gestión de Proyectos</li>
-                        <li>Mejora de Procesos</li>
-                        <li>Consultoría Empresarial</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Recursos Humanos</h3>
-                    <p>Administración de personal, reclutamiento, nómina, beneficios, cumplimiento laboral y desarrollo organizacional.</p>
-                    <ul class="service-list">
-                        <li>Administración de Nómina</li>
-                        <li>Reclutamiento y Selección</li>
-                        <li>Manejo de Beneficios</li>
-                        <li>Cumplimiento Laboral</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>Planificación Financiera</h3>
-                    <p>Desarrollo de planes financieros personalizados, estrategias de ahorro, planificación de retiro y protección patrimonial.</p>
-                    <ul class="service-list">
-                        <li>Planes Financieros Personalizados</li>
-                        <li>Estrategias de Inversión</li>
-                        <li>Planificación de Retiro</li>
-                        <li>Protección de Activos</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                    </div>
-                    <h3>Servicios Adicionales</h3>
-                    <p>Preparación de impuestos, representación ante agencias gubernamentales, y otros servicios profesionales especializados.</p>
-                    <ul class="service-list">
-                        <li>Planificación Tributaria</li>
-                        <li>Consultoría Legal-Financiera</li>
-                        <li>Análisis de Negocios</li>
-                        <li>Asesoría Personalizada</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="nosotros" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="about-image-wrapper">
-                        <img src="https://files.catbox.moe/o6we45.png" alt="Tree Professional Emporium" class="about-logo">
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h2 class="section-title">El Concepto Emporium</h2>
-                    <p><strong>Tree Professional Emporium</strong> es una organización dedicada a brindar multiplicidad de servicios profesionales a sus clientes mediante la integración de un equipo de trabajo altamente calificado.</p>
-                    <p>Nuestro modelo de negocio "Emporium" nos permite ofrecer una amplia gama de servicios especializados bajo un mismo techo, proporcionando soluciones integrales que se adaptan a las necesidades específicas de cada cliente.</p>
-                    <p>Con sede en Ponce, Puerto Rico, servimos a empresas y profesionales que buscan excelencia, confiabilidad y resultados medibles en sus operaciones financieras y administrativas.</p>
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Equipo Multidisciplinario</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Servicios Integrados</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Atención Personalizada</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Resultados Medibles</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="equipo" class="team-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nuestro Equipo de Expertos</h2>
-                <p class="section-subtitle">Profesionales dedicados a su éxito empresarial</p>
-            </div>
-
-            <!-- Team Member 1 - Image Left -->
-            <div class="team-member left">
-                <div class="team-image">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=600&fit=crop" alt="Director Financiero">
-                </div>
-                <div class="team-content">
-                    <span class="team-label">DIRECTOR FINANCIERO</span>
-                    <h3>Experto en Finanzas Corporativas</h3>
-                    <p>Con más de 15 años de experiencia en análisis financiero y planificación estratégica, nuestro equipo de finanzas ofrece soluciones innovadoras para el crecimiento sostenible de su empresa. Especializados en proyecciones financieras, optimización de recursos y estrategias de inversión.</p>
-                    <div class="team-signature">
-                        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10,40 Q30,20 50,40 T90,40" stroke="currentColor" fill="none" stroke-width="2"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Member 2 - Image Right -->
-            <div class="team-member right">
-                <div class="team-content">
-                    <span class="team-label">DIRECTORA DE CONTABILIDAD</span>
-                    <h3>Especialista en Contabilidad y Auditoría</h3>
-                    <p>Liderando nuestro departamento de contabilidad con precisión y dedicación. Experta en estados financieros, cumplimiento fiscal, y auditorías internas. Nuestro compromiso es mantener sus finanzas en orden perfecto, permitiéndole enfocarse en hacer crecer su negocio con total tranquilidad.</p>
-                    <div class="team-signature">
-                        <svg viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10,40 Q30,60 50,40 T90,40" stroke="currentColor" fill="none" stroke-width="2"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="team-image">
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=600&fit=crop" alt="Directora de Contabilidad">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="proceso" class="process">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nuestro Proceso de Trabajo</h2>
-                <p class="section-subtitle">Un enfoque estructurado para garantizar su éxito</p>
-            </div>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h3>Consulta Inicial</h3>
-                    <p>Analizamos sus necesidades y objetivos para entender a fondo su situación actual y metas futuras.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h3>Propuesta Personalizada</h3>
-                    <p>Desarrollamos un plan de acción específico con servicios adaptados a sus requerimientos únicos.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h3>Implementación</h3>
-                    <p>Ejecutamos el plan con profesionalismo y eficiencia, manteniéndolo informado en cada paso.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <h3>Seguimiento Continuo</h3>
-                    <p>Monitoreamos resultados, ajustamos estrategias y brindamos soporte constante para su éxito sostenido.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="why-choose">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">¿Por Qué Elegirnos?</h2>
-                <p class="section-subtitle">Ventajas de trabajar con Tree Professional Emporium</p>
-            </div>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <i class="fas fa-award"></i>
-                    <h3>Experiencia Comprobada</h3>
-                    <p>Años de experiencia sirviendo a empresas y profesionales en Puerto Rico.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Confianza y Transparencia</h3>
-                    <p>Relaciones basadas en la honestidad, confidencialidad y comunicación clara.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-cogs"></i>
-                    <h3>Soluciones Integrales</h3>
-                    <p>Todos los servicios que necesita en un solo lugar, ahorrando tiempo y recursos.</p>
-                </div>
-                <div class="benefit-card">
-                    <i class="fas fa-headset"></i>
-                    <h3>Soporte Dedicado</h3>
-                    <p>Atención personalizada y respuesta rápida a sus consultas y necesidades.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking Calendar Section - React Component -->
-    <div id="booking-calendar"></div>
-
-    <!-- Contact Section - React Component -->
-    <div id="contact-section"></div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <img src="https://files.catbox.moe/o6we45.png" alt="TPE Logo" class="footer-logo">
-                    <h3>Tree Professional Emporium</h3>
-                    <p>Su socio estratégico en servicios profesionales. Soluciones integrales para el éxito de su empresa.</p>
-                    <div class="social-links">
-                        <a href="https://instagram.com/treeprofessionalemporiumllc" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/17879305755" target="_blank" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:tpemporium@gmail.com" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Servicios</h4>
-                    <ul>
-                        <li><a href="#servicios">Contabilidad</a></li>
-                        <li><a href="#servicios">Finanzas</a></li>
-                        <li><a href="#servicios">Gerencia</a></li>
-                        <li><a href="#servicios">Recursos Humanos</a></li>
-                        <li><a href="#servicios">Planificación Financiera</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                        <li><a href="#proceso">Proceso</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contacto</h4>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> 29 Calle Cristina, Ponce, PR 00730</li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+17879305755">(787) 930-5755</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:tpemporium@gmail.com">tpemporium@gmail.com</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Tree Professional Emporium LLC. Todos los derechos reservados. | Ponce, Puerto Rico</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-
-    <!-- React App -->
-    <div id="react-app"></div>
+    <!-- React App Entry Point -->
     
 
-    <!-- AI Chat Assistant -->
-    <div id="ai-chat-assistant"></div>
+    <!-- Initialize Feather Icons after React renders -->
+    <script>
+        // Initialize feather icons after a short delay to allow React to render
+        setTimeout(() => {
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+        }, 100);
+
+        // Also reinitialize on route changes
+        window.addEventListener('popstate', () => {
+            setTimeout(() => {
+                if (typeof feather !== 'undefined') {
+                    feather.replace();
+                }
+            }, 100);
+        });
+    </script>
 </body>
 </html>
