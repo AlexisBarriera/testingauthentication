@@ -1,4 +1,3 @@
-
 .hero {
   min-height: 100vh;
   position: relative;
@@ -163,15 +162,15 @@
 
 .btn-secondary {
   background: transparent;
-  color: #6fba2c;
-  border: 2px solid #6fba2c;
+  color: #FFFFFF;
+  border: 2px solid #FFFFFF;
 }
 
 .btn-secondary:hover {
-  background: #6fba2c;
-  color: #FFFFFF;
+  background: #FFFFFF;
+  color: #1A2332;
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(111, 186, 44, 0.4);
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
 }
 
 .hero-features {
