@@ -22,10 +22,9 @@
     width: 100%;
   height: 40vh;
   min-height: 350px;
-  background: linear-gradient(to right, transparent 45%, rgba(26, 35, 50, 0.95) 100%),
-              url('https://files.catbox.moe/icuz8e.png');
-  background-size: auto 100%, auto 100%;
-  background-position: left top, left top;
+  background: url('https://files.catbox.moe/icuz8e.png');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   background-color: #1A2332;
   display: flex;
@@ -42,7 +41,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: linear-gradient(to right, transparent 0%, rgba(26, 35, 50, 0.1) 40%, rgba(26, 35, 50, 0.8) 60%, rgba(26, 35, 50, 0.95) 100%);
+  background: linear-gradient(to right, transparent 0%, rgba(45, 90, 15, 0.1) 40%, rgba(45, 90, 15, 0.3) 60%, rgba(45, 90, 15, 0.4) 100%);
   pointer-events: none;
 }
 
@@ -61,7 +60,7 @@
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #C9A961;
+  color: #9dd44c;
   margin-bottom: 1rem;
   font-weight: 500;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
@@ -71,6 +70,7 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   margin-bottom: 1.5rem;
+  color: #6fba2c;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8),
                4px 4px 12px rgba(0, 0, 0, 0.6);
 }
@@ -78,7 +78,7 @@
 .banner-divider {
   width: 80px;
   height: 3px;
-  background: linear-gradient(90deg, transparent, #C9A961, transparent);
+  background: linear-gradient(90deg, transparent, #6fba2c, transparent);
   margin: 0 auto;
 }
 
@@ -98,7 +98,7 @@
 
 .hero-subtitle {
   font-size: 1rem;
-  color: #C9A961;
+  color: #9dd44c;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 1rem;
@@ -108,13 +108,13 @@
 
 .hero-title {
   font-size: clamp(2rem, 4vw, 3.5rem);
-  color: #FFFFFF;
+  color: #6fba2c;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
 .hero-accent {
-  background: linear-gradient(135deg, #C9A961, #D4B574);
+  background: linear-gradient(135deg, #6fba2c, #9dd44c);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -148,29 +148,31 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #C9A961, #B8935A);
+  background: linear-gradient(135deg, #6fba2c, #9dd44c);
   color: #FFFFFF;
   border: none;
-  box-shadow: 0 4px 20px rgba(201, 169, 97, 0.4);
+  box-shadow: 0 4px 20px rgba(111, 186, 44, 0.4);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 30px rgba(201, 169, 97, 0.6);
-  background: linear-gradient(135deg, #B8935A, #C9A961);
+  box-shadow: 0 6px 30px rgba(111, 186, 44, 0.6);
+  background: linear-gradient(135deg, #FFFFFF, #f8f9fa);
+  color: #2d5a0f;
 }
 
 .btn-secondary {
   background: transparent;
-  color: #FFFFFF;
-  border: 2px solid #FFFFFF;
+  color: #6fba2c;
+  border: 2px solid #6fba2c;
 }
 
 .btn-secondary:hover {
   background: #FFFFFF;
-  color: #1A2332;
+  color: #2d5a0f;
   transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+  border-color: #FFFFFF;
 }
 
 .hero-features {
@@ -181,9 +183,9 @@
 }
 
 .feature-card {
-  background: linear-gradient(135deg, rgba(37, 47, 62, 0.6), rgba(42, 56, 71, 0.3));
+  background: linear-gradient(135deg, rgba(45, 90, 15, 0.6), rgba(26, 61, 8, 0.3));
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(201, 169, 97, 0.3);
+  border: 1px solid rgba(111, 186, 44, 0.3);
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
@@ -192,15 +194,15 @@
 
 .feature-card:hover {
   transform: translateY(-5px);
-  background: linear-gradient(135deg, rgba(37, 47, 62, 0.8), rgba(42, 56, 71, 0.5));
-  box-shadow: 0 10px 30px rgba(201, 169, 97, 0.2);
-  border-color: rgba(201, 169, 97, 0.5);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.8));
+  box-shadow: 0 10px 30px rgba(111, 186, 44, 0.3);
+  border-color: #6fba2c;
 }
 
 .feature-icon {
   display: inline-block;
   font-size: 2rem;
-  color: #C9A961;
+  color: #6fba2c;
   margin-bottom: 1rem;
 }
 
@@ -208,12 +210,26 @@
   font-size: 1.25rem;
   color: #FFFFFF;
   margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.feature-card:hover h3 {
+  color: #2d5a0f;
 }
 
 .feature-card p {
   color: #E8E8E8;
   font-size: 0.95rem;
   line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.feature-card:hover p {
+  color: #666666;
+}
+
+.feature-card:hover .feature-icon {
+  color: #2d5a0f;
 }
 
 @keyframes fadeInUp {
@@ -247,3 +263,4 @@
     max-width: 300px;
   }
 }
+
