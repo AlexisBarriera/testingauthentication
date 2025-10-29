@@ -73,7 +73,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0.75rem 1.25rem;
-  background: linear-gradient(135deg, rgba(37, 47, 62, 0.95), rgba(42, 56, 71, 0.95));
+  background: linear-gradient(135deg, rgba(90, 150, 35, 0.95), rgba(111, 186, 44, 0.95));
   backdrop-filter: blur(10px);
   border-radius: 12px;
   text-decoration: none;
@@ -85,8 +85,8 @@
 
 .nav-tab:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, rgba(42, 56, 71, 0.98), rgba(37, 47, 62, 0.98));
-  box-shadow: 0 8px 20px rgba(111, 186, 44, 0.4);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.98), rgba(20, 20, 20, 0.98));
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   border-color: rgba(111, 186, 44, 0.6);
 }
 
